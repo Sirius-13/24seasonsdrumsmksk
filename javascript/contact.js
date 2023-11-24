@@ -22,3 +22,21 @@ function scrollFunction() {
 window.onscroll = function () {
     scrollFunction();
 };
+
+function sendMessage() {
+    document.getElementById("contact-form").submit();
+}
+
+function sendEmail() {
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "",
+        Password: "",
+        To: '',
+        From: document.getElementById("email").value,
+        Subject: "New message from 24 Seasons Drum SMKSK",
+        Body: "Phone number: " + document.getElementById("phone").value + "<br>" + document.getElementById("message").value
+    }).then(
+        message => alert("Message sent successfully!")
+    );
+}
